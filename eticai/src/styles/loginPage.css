@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-width: 1060px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.DOXAimg{
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.inscription{
+    width: 50%;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+}
+
+.form h2 {
+
+    text-align: left;
+    color: #01054E;
+    margin-bottom: 70px;
+}
+
+label{
+    font-family:noto-sans, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-left: 15px;
+
+}
+
+.fp a{
+    font-size: 13px;
+    margin-left: 15px;
+    color: #666677;
+    text-decoration: none;
+}
+.fp a:hover{
+    text-decoration: underline;
+}
+
+.fp{
+    margin-bottom: 70px;
+
+}
+#emailInput{
+    margin: 10px 0;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 30px;
+    
+}
+
+#passwordInput{
+    margin: 10px 0;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+#passwordInput:focus ,#emailInput:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 15px 10px;
+    background-color: #030861;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    transition:  600ms;
+}
+
+button:hover {
+    background-image: linear-gradient(45%,#030a93 , #0d17d7  , #0610cf);
+    background-color: #030a93;
+}
