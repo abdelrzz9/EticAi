@@ -1,14 +1,20 @@
-// import LoginPage from "./pages/loginPage"
-import Chatbot from "./pages/ChatBot"
-import "./App.css"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './layout.tsx';
 
-function App() {
+
+
+const App: React.FC = () => {
   return (
-    <div id="login">
-      <Chatbot />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
+
+
 
 export default App;
-

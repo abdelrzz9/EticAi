@@ -1,0 +1,19 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    z-index: 1;
+}
+
+#sidebar{
+    position: fixed;
+    top: 0;
+    left: 0px;
+    z-index: 1111;
+}

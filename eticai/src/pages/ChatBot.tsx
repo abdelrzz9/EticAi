@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/ChatBot.css';
-import logoIcon from '../assets/logo.png'
-import profilePic from '../assets/pfp.jpg'
 
 type Message = { text: string; sender: 'user' | 'ai' };
 
@@ -16,13 +14,13 @@ const Chatbot: React.FC = () => {
     setMessages(prev => [...prev, { text: trimmed, sender: 'user' }]);
     setMessage('');
 
-    // Simulate AI response
-    // setTimeout(() => {
-    //   setMessages(prev => [...prev, {
-    //     text: 'This is a simulated AI response. In a real implementation, this would connect to an AI service.',
-    //     sender: 'ai',
-    //   }]);
-    // }, 1000);
+    // Simulate AI Response
+    setTimeout(() => {
+      setMessages(prev => [...prev, {
+        text: 'This is a simulated AI response. In a real implementation, this would connect to an AI service.',
+        sender: 'ai',
+      }]);
+    }, 1000);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -33,49 +31,11 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className="dashboard-container">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="logo-section">
-          <div className="logo">
-            <img src={logoIcon} alt="Logo" className="logo-icon" />
-            <span className="logo-text">Doxa</span>
-          </div>
-          <button className="menu-toggle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M19 9L12 16L5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-        </div>
-      </aside>
+    <div style={{ paddingBottom: "70px" }} className="dashboard-container">
+
 
       {/* Main Content */}
       <main className="main-content">
-        {/* Header */}
-        <header className="header">
-          <div className="header-left">
-            <h1 className="page-title">AI Log</h1>
-          </div>
-          <div className="header-right">
-            <button className="search-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
-                <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
-            <div className="notification-badge">
-              <span className="badge-icon"><span className="material-symbols-outlined ">
-
-</span></span>
-              <span className="badge-count">15</span>
-            </div>
-            <div className="user-profile">
-              <img src={profilePic} alt="UserPFP" className="avatar" />
-              <span className="username">Mohamed</span>
-            </div>
-          </div>
-        </header>
-
         {/* Chat Area */}
         <div className="chat-container">
           {messages.length === 0 ? (
