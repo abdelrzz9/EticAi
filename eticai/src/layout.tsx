@@ -39,7 +39,6 @@ function layout() {
         
       </div>
     </div>
-  );
 }
 
 export default layout;
