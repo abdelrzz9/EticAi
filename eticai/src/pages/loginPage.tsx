@@ -1,15 +1,28 @@
-import React, { useState } from 'react'
 import '../styles/loginPage.css'
 import sideimg from '../assets/sideimage.png'
 
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-function LoginPage() {
+export default function login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [error, setError] = useState('');
+  
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Logging in with:", email, password);
+    
+    if (!email || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
+
+    if (email === 'admin@doxa.com' && password === 'admin123') {
+      navigate('/chatbot');
+    } else {
+      setError('Invalid email or password');
+    }
   };
 
   return (
@@ -51,4 +64,3 @@ function LoginPage() {
 
 
 
-export default LoginPage;

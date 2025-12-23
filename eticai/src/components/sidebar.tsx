@@ -1,18 +1,19 @@
 import React from 'react';
 import { LayoutDashboard, Users, Plus, Settings, LogOut } from 'lucide-react';
 import logoImage from '../assets/logo.png';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function DoxaSidebar() {
-  const [activeItem, setActiveItem] = React.useState('dashboard');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'client-log', label: 'Client Log', icon: Users },
-    { id: 'ai-log', label: 'AI Log', icon: Plus },
-  ];
+const menuItems = [
+  { id: 'chatbot', label: 'ChatBot', icon: LayoutDashboard, path: '/chatbot' },
+  { id: 'client-log', label: 'Client Log', icon: Users, path: '/client-log' },
+  { id: 'ai-log', label: 'AI Log', icon: Plus, path: '/ai-log' },
+];
 
   const styles = {
-
     container: {
       margin: 0,
       padding: 0,
@@ -37,21 +38,6 @@ export default function DoxaSidebar() {
       width: '32px',
       height: '32px',
       objectFit: 'contain' as const,
-    },
-    waveIcon: {
-      display: 'flex',
-      flexDirection: 'column' as const,
-      gap: '2px',
-    },
-    waveRow: {
-      display: 'flex',
-      gap: '2px',
-    },
-    waveDot: {
-      width: '4px',
-      height: '12px',
-      backgroundColor: '#3b82f6',
-      borderRadius: '9999px',
     },
     logoText: {
       fontSize: '20px',
@@ -148,11 +134,10 @@ export default function DoxaSidebar() {
       <div style={styles.logoSection}>
         <div style={styles.logoContainer}>
           <img 
-            src= {logoImage} 
+            src={logoImage} 
             alt="Doxa Logo" 
             style={styles.logoImage}
           />
-          
           <span style={styles.logoText}>Doxa</span>
         </div>
       </div>
@@ -161,12 +146,12 @@ export default function DoxaSidebar() {
         <div style={styles.menuList}>
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeItem === item.id;
+            const isActive = location.pathname === item.path;
             
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveItem(item.id)}
+                onClick={() => navigate(item.path)}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 style={styles.menuButton(isActive)}
@@ -181,19 +166,16 @@ export default function DoxaSidebar() {
       </nav>
 
       <div style={styles.bottomSection}>
-
         <div style={styles.userCard}>
-          <div style={styles.avatar}>
-            M
-          </div>
+          <div style={styles.avatar}>M</div>
           <span style={styles.userName}>Mohamed</span>
         </div>
-
 
         <button 
           style={styles.bottomButton}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={() => navigate('/settings')}
         >
           <Settings size={16} />
           <span>Settings</span>
@@ -203,6 +185,10 @@ export default function DoxaSidebar() {
           style={styles.bottomButton}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={() => {
+
+          console.log('Logging out...');
+          }}
         >
           <LogOut size={16} />
           <span>Logout</span>

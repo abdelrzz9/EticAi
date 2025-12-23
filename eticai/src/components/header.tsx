@@ -9,7 +9,7 @@ export default function DoxaHeader({ title }: DoxaHeaderProps) {
   const styles = {
     header: {
       height: '70px',
-      backgroundColor: '#0a0a2e',
+      backgroundImage: 'linear-gradient(to left, #1f395e 1% , #2f5567 9% , #0a0a2e 87%)',
       borderBottom: '1px solid rgba(59, 130, 246, 0.2)',
       display: 'flex',
       alignItems: 'center',
@@ -38,13 +38,14 @@ export default function DoxaHeader({ title }: DoxaHeaderProps) {
       height: '40px',
       paddingLeft: '40px',
       paddingRight: '16px',
-      border: '1px solid rgba(59, 130, 246, 0.3)',
+      border: '1px solid rgba(193, 213, 245, 1)',
       borderRadius: '8px',
       fontSize: '14px',
       outline: 'none',
-      backgroundColor: 'rgba(15, 17, 41, 0.6)',
+      backgroundColor: 'rgba(255, 255, 255, 0.16)',
       color: '#ffffff',
       transition: 'all 0.2s ease',
+      backdropFilter: 'blur(15px)'
     },
     searchIcon: {
       position: 'absolute' as const,
@@ -55,10 +56,10 @@ export default function DoxaHeader({ title }: DoxaHeaderProps) {
     iconButton: {
       width: '40px',
       height: '40px',
-      borderRadius: '50%',
-      border: 'none',
-      backgroundColor: 'rgba(37, 99, 235, 0.1)',
+      borderRadius: '10px',
+      backgroundColor: 'rgba(255, 255, 255, 0.16)',
       display: 'flex',
+      border: '1px solid rgba(193, 213, 245, 1)',
       alignItems: 'center',
       justifyContent: 'center',
       cursor: 'pointer',
@@ -117,37 +118,29 @@ export default function DoxaHeader({ title }: DoxaHeaderProps) {
   };
 
   const handleSearchFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.target.style.borderColor = '#2563eb';
     e.target.style.backgroundColor = 'rgba(15, 17, 41, 0.8)';
   };
 
   const handleSearchBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)';
-    e.target.style.backgroundColor = 'rgba(15, 17, 41, 0.6)';
+    e.target.style.backgroundColor = '#797dae4d';
   };
 
   const handleIconButtonHover = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.backgroundColor = 'rgba(37, 99, 235, 0.2)';
+    e.currentTarget.style.backgroundColor = '#797dae4d';
   };
 
-  const handleIconButtonLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-  };
 
   const handleUserSectionHover = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
   };
 
-  const handleUserSectionLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.backgroundColor = 'transparent';
-  };
 
   return (
     <header style={styles.header}>
       
       <h1 style={styles.title}>{title}</h1>
 
-      {/* Right Section - Search, Notifications, User */}
       <div style={styles.rightSection}>
 
 
@@ -165,7 +158,6 @@ export default function DoxaHeader({ title }: DoxaHeaderProps) {
         <button
           style={styles.iconButton}
           onMouseEnter={handleIconButtonHover}
-          onMouseLeave={handleIconButtonLeave}
         >
           <Bell size={20} color="#d1d5db" />
           <div style={styles.notificationBadge}></div>
@@ -174,7 +166,6 @@ export default function DoxaHeader({ title }: DoxaHeaderProps) {
         <button
           style={styles.userSection}
           onMouseEnter={handleUserSectionHover}
-          onMouseLeave={handleUserSectionLeave}
         >
           <div style={styles.userAvatar}>M</div>
           <div style={styles.userInfo}>
