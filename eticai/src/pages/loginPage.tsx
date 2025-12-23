@@ -19,7 +19,7 @@ export default function login() {
     }
 
     if (email === 'admin@doxa.com' && password === 'admin123') {
-      navigate('/chatbot');
+      navigate('/Dashboard');
     } else {
       setError('Invalid email or password');
     }
@@ -53,6 +53,7 @@ export default function login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)} 
             />
+            {error && <p className='error-message'>{error}</p>}
             <p className='fp'> <a href="#"> forgot Password? </a></p>
             <button type="submit" className='login'>Log In</button>
       </form>

@@ -8,7 +8,7 @@ export default function DoxaSidebar() {
   const location = useLocation();
 
 const menuItems = [
-  { id: 'chatbot', label: 'ChatBot', icon: LayoutDashboard, path: '/chatbot' },
+  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/Dashboard' },
   { id: 'client-log', label: 'Client Log', icon: Users, path: '/client-log' },
   { id: 'ai-log', label: 'AI Log', icon: Plus, path: '/ai-log' },
 ];

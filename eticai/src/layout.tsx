@@ -27,7 +27,7 @@ function layout() {
 
 
        <div style={{ 
-         overflow: "hidden",
+         overflow: "auto",
          margin: 0,
          padding: 0,
          gridColumn: '2', 

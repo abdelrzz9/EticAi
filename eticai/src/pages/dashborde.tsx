@@ -1,5 +1,8 @@
-import { Search, Bell, LayoutDashboard, BrainCircuit, History, Settings, LogOut, User, Sparkles, Filter } from 'lucide-react';
-import '../Stayle/dashboard.css';
+
+import { Filter } from 'lucide-react';
+import '../styles/dashboard.css';
+import graph2 from '../assets/graph2.png';
+import graph1 from '../assets/grapfh1.png';
 
 const Dashboard = () => {
   const tableData = [
@@ -8,19 +11,25 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="dashboard-container">
+    <div className="main-content">
         {/* SIDEBAR - Fixed navigation structure */}
 
       {/* MAIN CONTENT AREA - Now correctly filling the screen */}
-      <div className="main-content">
+      
         
         {/* HEADER - Fixed search and notification structure */}
 
         {/* MAIN SECTION */}
         <main className="main-section">
-          {/* Images Section - Side by Side */}
-         <Dashboard/>
-         <Dashboard/>
+          {/* Graph2 Section - Centered in Middle */}
+          <div className="graph-center-container">
+            <div className="graph-centered">
+              <img src={graph2} alt="Graph 2" className="dashboard-image" />
+            </div>
+            <div className="graph-centered">
+              <img src={graph1} alt="Graph 1" className="dashboard-image" />
+            </div>
+          </div>
           {/* Table Section */}
           <div className="table-section">
             <div className="table-header-row">
@@ -70,7 +79,6 @@ const Dashboard = () => {
             </div>
           </div>
         </main>
-      </div>
     </div>
   );
 };

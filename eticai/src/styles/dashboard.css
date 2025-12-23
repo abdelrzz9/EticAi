@@ -11,33 +11,14 @@
   --border-light: rgba(255, 255, 255, 0.1);
 }
 
-body {
-    width: 100%;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg-gradient);
-  color: var(--text-main);
-}
-
-.dashboard-container {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* Sidebar Styling */
-.sidebar {
-  width: 240px;
-  background-color: var(--sidebar-color);
-  padding: 2rem 1rem;
-  border-right: 1px solid var(--border-light);
-}
-
 /* Main Content Area */
 .main-content {
-    width: 100%;
-  flex: 1;
+  width: 100%;
+  height: 100%;
   padding: 2rem;
   overflow-y: auto;
+  background: var(--bg-gradient);
+  color: var(--text-main);
 }
 
 /* Images/Charts Section (The top two cards) */
@@ -48,6 +29,40 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Images Section */
+.images-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.image-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.image-card-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  background-image: 
+    linear-gradient(var(--card-bg), var(--card-bg)),
+    linear-gradient(135deg, var(--accent-cyan), var(--accent-blue), var(--accent-cyan));
+  background-origin: border, border;
+  background-clip: padding-box, border-box;
+}
+
 .image-section {
   background: var(--card-bg);
   border: 1px solid var(--border-light);
@@ -56,7 +71,31 @@ body {
   backdrop-filter: blur(10px);
 }
 
+/* Centered Graph Container */
+.graph-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.graph-centered {
+  
+  width: auto;
+  max-width: 600px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dashboard-image {
+  scale: 0.6;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.2));
@@ -70,6 +109,7 @@ body {
   border-radius: 20px;
   padding: 1.5rem;
 }
+
 
 .table-header-row {
   display: flex;
