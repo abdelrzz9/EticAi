@@ -55,7 +55,7 @@ export default function login() {
             />
             {error && <p className='error-message'>{error}</p>}
             <p className='fp'> <a href="#"> forgot Password? </a></p>
-            <button type="submit" className='login'>Log In</button>
+            <button type="submit" className='login'>Log-In</button>
       </form>
       </div>
     </div>

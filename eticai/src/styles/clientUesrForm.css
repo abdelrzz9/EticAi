@@ -17,6 +17,7 @@
   border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .app-title {
@@ -34,7 +35,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.3s ease;
+  transition: background 0.56s ease;
 }
 
 .logout-btn:hover {
@@ -80,7 +81,7 @@
   transition: all 0.3s ease;
   font-weight: 500;
   color: #4a5568;
-  border: 2px solid transparent;
+  border: 5cap solid transparent;
 }
 
 .client-id-tag:hover {

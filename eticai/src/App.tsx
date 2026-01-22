@@ -9,17 +9,15 @@ import Dashboard from './pages/dashborde.tsx';
 const App: React.FC = () => {
   return (
     <Router>
-     <Routes>
-    <Route path="/" element={<Navigate to="/login" replace />} />
-  
-    <Route path="/login" element={<LoginPage />} />
-  
-    <Route path="/" element={<Layout />}>
-    <Route path="Dashboard" element={<Dashboard />} />
-    <Route path="client-log" element={<ClientLog/>} />
-    <Route path="ai-log" element={<AILogPage />} />
-    </Route>
-  </Routes>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="ai-log" element={<AILogPage />} />
+          <Route path="client-log" element={<ClientLog />} />
+        </Route>
+      </Routes>
     </Router>
   );
 };

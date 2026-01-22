@@ -4,4 +4,6 @@ export interface ClientLogEntry {
   specificTroubleshoot: string;
   callDuration: string;
   feedback: string;
+  timestamp: string;
+  
 }
