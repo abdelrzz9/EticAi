@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CLIENT_LOG } from '../../../core/constants/app';
+import { CLIENT_LOG, CLIENT_LOG_PAGE } from '../../../core/constants/app';
 import { Button } from '../../../shared/ui/Button';
 import { Input } from '../../../shared/ui/Input';
 import type { LogType, FeedbackType, ClientFormData } from '../../../core/types/client-log';
@@ -29,6 +29,13 @@ export function LogForm({ onSubmit, onCancel }: LogFormProps) {
     e.preventDefault();
     if (!formData.clientId || !formData.specificTroubleshoot) return;
     onSubmit(formData);
+    setFormData({
+      clientId: '',
+      type: 'Technical' as LogType,
+      specificTroubleshoot: '',
+      callDuration: '',
+      feedback: 'Neutral' as FeedbackType,
+    });
   };
 
   return (
@@ -36,16 +43,16 @@ export function LogForm({ onSubmit, onCancel }: LogFormProps) {
       <Input
         id="clientId"
         name="clientId"
-        label="Client ID *"
+        label={CLIENT_LOG_PAGE.FIELDS.CLIENT_ID}
         value={formData.clientId}
         onChange={handleChange}
-        placeholder="Enter Client ID"
+        placeholder={CLIENT_LOG_PAGE.PLACEHOLDERS.CLIENT_ID}
         required
       />
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="type" className="text-sm font-semibold text-white ml-1">
-          Type *
+          {CLIENT_LOG_PAGE.FIELDS.TYPE}
         </label>
         <select
           id="type"
@@ -56,7 +63,7 @@ export function LogForm({ onSubmit, onCancel }: LogFormProps) {
           className="w-full px-3 py-2.5 rounded-lg border border-white/20 bg-white/5 text-white focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition-all"
         >
           {CLIENT_LOG.TYPES.map((t) => (
-            <option key={t} value={t} className="bg-[#0f1129]">
+            <option key={t} value={t} className="bg-bg-darker">
               {t}
             </option>
           ))}
@@ -66,25 +73,25 @@ export function LogForm({ onSubmit, onCancel }: LogFormProps) {
       <Input
         id="specificTroubleshoot"
         name="specificTroubleshoot"
-        label="Specific Troubleshoot *"
+        label={CLIENT_LOG_PAGE.FIELDS.TROUBLESHOOT}
         value={formData.specificTroubleshoot}
         onChange={handleChange}
-        placeholder="Describe the issue"
+        placeholder={CLIENT_LOG_PAGE.PLACEHOLDERS.TROUBLESHOOT}
         required
       />
 
       <Input
         id="callDuration"
         name="callDuration"
-        label="Call Duration"
+        label={CLIENT_LOG_PAGE.FIELDS.DURATION}
         value={formData.callDuration}
         onChange={handleChange}
-        placeholder="e.g., 08:45"
+        placeholder={CLIENT_LOG_PAGE.PLACEHOLDERS.DURATION}
       />
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="feedback" className="text-sm font-semibold text-white ml-1">
-          Feedback
+          {CLIENT_LOG_PAGE.FIELDS.FEEDBACK}
         </label>
         <select
           id="feedback"
@@ -94,7 +101,7 @@ export function LogForm({ onSubmit, onCancel }: LogFormProps) {
           className="w-full px-3 py-2.5 rounded-lg border border-white/20 bg-white/5 text-white focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition-all"
         >
           {CLIENT_LOG.FEEDBACK_OPTIONS.map((f) => (
-            <option key={f} value={f} className="bg-[#0f1129]">
+            <option key={f} value={f} className="bg-bg-darker">
               {f}
             </option>
           ))}
@@ -103,10 +110,10 @@ export function LogForm({ onSubmit, onCancel }: LogFormProps) {
 
       <div className="flex gap-4 mt-2">
         <Button type="submit" className="flex-1">
-          Submit
+          {CLIENT_LOG_PAGE.SUBMIT}
         </Button>
         <Button type="button" variant="secondary" onClick={onCancel} className="flex-1">
-          Cancel
+          {CLIENT_LOG_PAGE.CANCEL}
         </Button>
       </div>
     </form>

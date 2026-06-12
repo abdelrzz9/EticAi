@@ -3,11 +3,21 @@
 @theme {
   --color-bg-dark: #090a1f;
   --color-bg-darker: #050614;
+  --color-bg-sidebar: #0a0a2e;
   --color-accent-cyan: #00f2ff;
   --color-accent-blue: #2563eb;
   --color-accent-darkblue: #2d33ff;
+  --color-accent-navy: #030861;
+  --color-accent-navy-hover: #030a93;
   --color-text-muted: #8b8ea1;
+  --color-text-dark: #01054E;
   --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-border-blue: rgba(59, 130, 246, 0.2);
+  --color-header-from: #1f395e;
+  --color-header-via: #2f5567;
+  --color-header-to: #0a0a2e;
+  --width-sidebar: 210px;
+  --height-header: 70px;
 }
 
 * {
@@ -26,7 +36,7 @@ body {
     'Ubuntu', 'Cantarell', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #090a1f;
+  background: var(--color-bg-dark);
   color: #ffffff;
 }
 
@@ -43,4 +53,14 @@ body {
 @keyframes sparkle {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }

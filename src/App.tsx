@@ -4,6 +4,7 @@ import { LoginPage } from './features/auth/pages/LoginPage';
 import { DashboardPage } from './features/dashboard/pages/DashboardPage';
 import { AILogPage } from './features/ai-log/pages/AILogPage';
 import { ClientLogPage } from './features/client-log/pages/ClientLogPage';
+import { SettingsPage } from './features/settings/pages/SettingsPage';
 import { useClientLogs } from './features/client-log/hooks/useClientLogs';
 
 function ClientLogWrapper() {
@@ -29,6 +30,10 @@ export default function App() {
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="ai-log" element={<AILogPage />} />
           <Route path="client-log" element={<ClientLogWrapper />} />
+          <Route
+            path="settings"
+            element={<SettingsPage />}
+          />
         </Route>
       </Routes>
     </Router>
